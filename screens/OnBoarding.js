@@ -12,29 +12,25 @@ const OnBoarding = () => {
                     <OnBoardingPage
                         backgroundColor="#FFFFFF"
                         img={ILLUSTRATION_1}
-                        title="Bienvenue dans Monumental Habits"
-                        description="On peut vous aider à devenir une meilleure version de vous même" />
+                        title="Bienvenue dans Monumental Habits" />
                 </View>
                 <View key="2">
                     <OnBoardingPage
                         backgroundColor="#FFFFFF"
                         img={ILLUSTRATION_2}
-                        title="Créez des nouvelles habitudes facilement."
-                        description="On peut vous aider à devenir une meilleure version de vous même" />
+                        title="Creez des nouvelles habitudes facilement." />
                 </View>
                 <View key="3">
                     <OnBoardingPage
                         backgroundColor="#FFFFFF"
                         img={ILLUSTRATION_3}
-                        title="Gardez en oeil sur vos progrès."
-                        description="On peut vous aider à devenir une meilleure version de vous même" />
+                        title="Gardez en oeil sur vos progres." />
                 </View>
                 <View key="4">
                     <OnBoardingPage
                         backgroundColor="#FFFFFF"
                         img={ILLUSTRATION_4}
-                        title="Rejoignez une communauté inspirante."
-                        description="On peut vous aider à devenir une meilleure version de vous même" />
+                        title="Rejoignez une communaute inspirante." />
                 </View>
             </ViewPager>
         </View>
@@ -44,7 +40,7 @@ const OnBoarding = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width:"100%",
+        width: "100%",
     }
 });
 

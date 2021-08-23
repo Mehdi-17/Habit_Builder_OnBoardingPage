@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { BASIC_FONT_COLOR } from '../constants/Theme';
 
-const Title = ({text, textStyle}) => {
+const Title = ({ text, textStyle }) => {
     return (
-        <View style={styles.container}>
+        <View>
             <Text style={[styles.text, textStyle]}>{text}</Text>
         </View>
     );
@@ -11,6 +12,12 @@ const Title = ({text, textStyle}) => {
 
 const styles = StyleSheet.create({
     text: {
+        fontFamily: "KlasikRegular",
+        fontSize: 32,
+        lineHeight:32,
+        color: BASIC_FONT_COLOR,
+        letterSpacing:-0.3,
+        textTransform:"uppercase"
     }
 });
 
