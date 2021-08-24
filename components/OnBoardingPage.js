@@ -28,17 +28,18 @@ const OnBoardingPage = ({ backgroundColor, img, title, description }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
     },
     content: {
         height: "80%",
         position: "absolute",
         top: 80,
+        alignItems: "center"
     },
     buttonView: {
         position: "absolute",
-        bottom: 60
+        bottom: 60,
+        width: "100%",
+        alignItems: "center"
     },
     title: {
         textAlign: "center",
