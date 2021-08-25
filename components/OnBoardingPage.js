@@ -1,26 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { BASIC_FONT_COLOR, SECONDARY_FONT_COLOR } from '../constants/Theme';
+import { PRIMARY_ELEMENT_COLOR, SECONDARY_ELEMENT_COLOR } from '../constants/Theme';
 import Title from './Title';
 
-//TODO: DEVELOP SWIPE DOTS
+const OnBoardingPage = ({ backgroundColor, img, title, pageIndex }) => {
 
-const OnBoardingPage = ({ backgroundColor, img, title, description }) => {
     return (
         <View style={[styles.container, { backgroundColor: backgroundColor }]}>
-            <View style={styles.content}>
-                <Title text={title} textStyle={styles.title} />
-                <Image source={img} />
-                <Text style={styles.description}>
-                    On peut
-                    <Text style={styles.importantWord}> vous aider </Text>
-                    à devenir une meilleure version de
-                    <Text style={styles.importantWord}> vous-même.</Text>
-                </Text>
-            </View>
-            <View style={styles.buttonView}>
-                <Text>Button here.</Text>
-            </View>
+            <Title text={title} textStyle={styles.title} />
+            <Image source={img} />
+            <Text style={styles.description}>
+                On peut
+                <Text style={styles.importantWord}> vous aider </Text>
+                à devenir une meilleure version de
+                <Text style={styles.importantWord}> vous-même.</Text>
+            </Text>
         </View>
     );
 }
@@ -28,18 +22,7 @@ const OnBoardingPage = ({ backgroundColor, img, title, description }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    content: {
-        height: "80%",
-        position: "absolute",
-        top: 80,
-        alignItems: "center"
-    },
-    buttonView: {
-        position: "absolute",
-        bottom: 60,
-        width: "100%",
-        alignItems: "center"
+        alignItems: 'center'
     },
     title: {
         textAlign: "center",
@@ -56,10 +39,10 @@ const styles = StyleSheet.create({
         bottom: 40,
         marginHorizontal: 32,
         fontWeight: "600",
-        color: BASIC_FONT_COLOR
+        color: PRIMARY_ELEMENT_COLOR
     },
     importantWord: {
-        color: SECONDARY_FONT_COLOR,
+        color: SECONDARY_ELEMENT_COLOR,
     }
 });
 
