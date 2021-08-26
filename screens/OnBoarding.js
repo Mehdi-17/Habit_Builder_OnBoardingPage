@@ -10,7 +10,6 @@ const OnBoarding = () => {
 
     useEffect(() => {
         scrollX.addListener(({ value }) => {
-            console.log("scroll X => ", Math.floor(value / DEVICE_SIZE.width));
             if (Math.floor(value / DEVICE_SIZE.width) === ON_BOARDING_CONTENT.length - 2) {
                 setScrollCompleted(true);
             }
