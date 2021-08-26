@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         textTransform: "uppercase",
         position: "absolute",
-        bottom: 40,
+        bottom: 65,
         marginHorizontal: 32,
         fontWeight: "600",
         color: PRIMARY_ELEMENT_COLOR

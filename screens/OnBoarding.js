@@ -1,12 +1,22 @@
-import React, { useRef } from 'react';
-import { View, StyleSheet, Animated, Dimensions } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, StyleSheet, Animated, Text, TouchableOpacity } from 'react-native';
 import OnBoardingPage from '../components/OnBoardingPage';
 import { ON_BOARDING_CONTENT } from '../constants/OnBoardingContent';
 import { DOTS_SIZE, PRIMARY_ELEMENT_COLOR, SECONDARY_ELEMENT_COLOR, DEVICE_SIZE } from '../constants/Theme';
 
 const OnBoarding = () => {
-
+    const [scrollCompleted, setScrollCompleted] = useState(false);
     const scrollX = new Animated.Value(0);
+
+    useEffect(() => {
+        scrollX.addListener(({ value }) => {
+            console.log("scroll X => ", Math.floor(value / DEVICE_SIZE.width));
+            if (Math.floor(value / DEVICE_SIZE.width) === ON_BOARDING_CONTENT.length - 2) {
+                setScrollCompleted(true);
+            }
+        });
+        return () => scrollX.removeListener();
+    }, []);
 
     const renderPage = () => {
         return (
@@ -39,7 +49,7 @@ const OnBoarding = () => {
     const renderDots = () => {
         const dotPosition = Animated.divide(scrollX, DEVICE_SIZE.width);
         return (
-            <View style={styles.dotsView}>
+            <View style={{flexDirection:"row", alignItems:"center"}}>
                 {ON_BOARDING_CONTENT.map((_, index) => {
 
                     const dotColor = dotPosition.interpolate({
@@ -66,13 +76,24 @@ const OnBoarding = () => {
         );
     };
 
+    const renderButton = () => {
+        //TODO: On press touchable opacity => go to Home Page
+        return (
+            <View style={styles.buttonView}>
+                <TouchableOpacity >
+                    <Text style={styles.buttonText}>Commencer</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.boardingPageContent}>
                 {renderPage()}
             </View>
             <View style={styles.dotsView}>
-                {renderDots()}
+                {!scrollCompleted ? renderDots() : renderButton()}
             </View>
         </View>
     );
@@ -103,6 +124,20 @@ const styles = StyleSheet.create({
         borderRadius: DOTS_SIZE / 2,
         marginHorizontal: DOTS_SIZE / 2
     },
+    buttonView: {
+        width: "90%",
+        justifyContent: 'center',
+        alignItems: "center",
+        backgroundColor: SECONDARY_ELEMENT_COLOR,
+        height: 40,
+        borderRadius: 10,
+    },
+    buttonText: {
+        color: PRIMARY_ELEMENT_COLOR,
+        fontFamily: "ManropeBold",
+        fontSize: 16,
+        lineHeight: 16,
+    }
 });
 
 export default OnBoarding;
