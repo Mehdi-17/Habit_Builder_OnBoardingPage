@@ -48,7 +48,7 @@ const OnBoarding = () => {
     const renderDots = () => {
         const dotPosition = Animated.divide(scrollX, DEVICE_SIZE.width);
         return (
-            <View style={{flexDirection:"row", alignItems:"center"}}>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
                 {ON_BOARDING_CONTENT.map((_, index) => {
 
                     const dotColor = dotPosition.interpolate({
@@ -78,11 +78,9 @@ const OnBoarding = () => {
     const renderButton = () => {
         //TODO: On press touchable opacity => go to Home Page
         return (
-            <View style={styles.buttonView}>
-                <TouchableOpacity >
-                    <Text style={styles.buttonText}>Commencer</Text>
-                </TouchableOpacity>
-            </View>
+            <TouchableOpacity style={styles.buttonView} >
+                <Text style={styles.buttonText}>Commencer</Text>
+            </TouchableOpacity>
         );
     }
 
